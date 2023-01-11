@@ -7,7 +7,6 @@ import { GiDroplets, GiThermometerScale } from "react-icons/gi";
 import { IoMdTime } from "react-icons/io";
 
 const Weathercard = (datas) => {
-
   return (
     <Box
       width={"600px"}

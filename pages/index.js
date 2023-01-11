@@ -15,6 +15,7 @@ import axios from "axios";
 import Weathercard from "./component/weather.card";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 const quicksand = Quicksand({ subsets: ["latin"], style: ["normal"] });
 
@@ -40,7 +41,7 @@ export default function Home(data) {
           content="World Weather - Current and Forcast"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/roundlogo.png" />
       </Head>
       <Box
         height={"835px"}
@@ -53,7 +54,9 @@ export default function Home(data) {
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
         bgColor={"gray.100"}
+        pt={"-8"}
       >
+        <Image src={"/fulllogo.png"} height={"100"} width={"100"}></Image>
         <Box className={quicksand.className} fontWeight={"bold"}>
           <form onSubmit={handleSubmit}>
             <InputGroup>
@@ -91,7 +94,7 @@ export default function Home(data) {
         <Box>
           <Text
             fontFamily={"Poppins"}
-            fontSize={"4xl"}
+            fontSize={"5xl"}
             fontWeight={"bold"}
             textAlign={"center"}
           >

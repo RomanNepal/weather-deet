@@ -9,6 +9,8 @@ import {
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Suspense, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
@@ -48,7 +50,7 @@ const SearchResult = (recieved) => {
           content="World Weather - Current and Forcast"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/roundlogo.png" />
       </Head>
       <Box
         padding={"10"}
@@ -59,6 +61,15 @@ const SearchResult = (recieved) => {
         gap={"10"}
         bgColor={"#EDF2F7"}
       >
+        <Link href={"/"}>
+          {" "}
+          <Image
+            unoptimized={"true"}
+            src={"/fulllogo.png"}
+            height={"100"}
+            width={"100"}
+          ></Image>
+        </Link>
         <form onSubmit={handleSubmit}>
           <InputGroup>
             <Input
