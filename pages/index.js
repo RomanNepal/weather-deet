@@ -156,20 +156,20 @@ export default function Home(data) {
 export async function getStaticProps(context) {
   let response1 = await axios.get(
     // `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=Paris`
-    `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=Kathmandu`
+    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=Kathmandu`
   );
 
   let response2 = await axios.get(
     // `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=Paris`
-    `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=London`
+    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=London`
   );
 
   let response3 = await axios.get(
-    `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=New York`
+    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New York`
   );
 
   let response4 = await axios.get(
-    `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=New Delhi`
+    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New Delhi`
   );
   console.log("api called");
   let data1 = response1.data;

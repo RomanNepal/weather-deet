@@ -11,4 +11,3 @@ const urls = {
   iplookup: "ip.json",
   key: "a3996048254b4c36af2154129230801",
 };
-module.exports = urls;

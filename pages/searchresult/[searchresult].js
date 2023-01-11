@@ -7,7 +7,6 @@ import {
   Skeleton,
   Text,
 } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
 import axios from "axios";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -16,12 +15,8 @@ import { BiSearchAlt } from "react-icons/bi";
 import TodayForcast from "../component/today.forcast";
 import TomorrowForcast from "../component/tomorrow.forcast";
 import urls from "../component/urls";
-import Loading from "../component/loading";
 import Weathercard from "../component/weather.card";
 
-const suspense = () => {
-  return <div>Loading...</div>;
-};
 const SearchResult = (recieved) => {
   const router = useRouter();
   const [data, setData] = useState();
@@ -129,7 +124,7 @@ export async function getServerSideProps(context) {
   let data = {};
   try {
     let result = await axios.get(
-      `${urls.base_url}/${urls.forecast}?key=${urls.key}&q=${context.query.searchresult}&days=2&aqi=yes&alerts=yes`
+      `http://api.weatherapi.com/v1/forecast.json?key=a3996048254b4c36af2154129230801&q=${context.query.searchresult}&days=2&aqi=yes&alerts=yes`
     );
     data = JSON.parse(JSON.stringify(result.data));
   } catch (err) {
