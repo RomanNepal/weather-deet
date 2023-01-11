@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { BiSearchAlt } from "react-icons/bi";
 import axios from "axios";
-import urls from "./component/urls";
 import Weathercard from "./component/weather.card";
 import { useState } from "react";
 import { useRouter } from "next/router";

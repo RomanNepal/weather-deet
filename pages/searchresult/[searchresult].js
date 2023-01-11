@@ -14,7 +14,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import TodayForcast from "../component/today.forcast";
 import TomorrowForcast from "../component/tomorrow.forcast";
-import urls from "../component/urls";
 import Weathercard from "../component/weather.card";
 
 const SearchResult = (recieved) => {
