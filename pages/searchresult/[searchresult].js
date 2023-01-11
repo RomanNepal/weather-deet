@@ -32,7 +32,7 @@ const SearchResult = (recieved) => {
   useEffect(() => {
     setData(recieved.data);
     setLoading(false);
-  }, [router.query.searchresult]);
+  }, [recieved.data]);
   const handleChange = (e) => {
     setFormData(e.target.value);
   };
