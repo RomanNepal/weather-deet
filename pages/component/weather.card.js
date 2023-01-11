@@ -38,7 +38,7 @@ const Weathercard = (datas) => {
         <Image
           placeholder={"blur"}
           blurDataURL={"/vercel.svg"}
-          src={datas.imageSource}
+          src={datas?.imageSource}
           height={"60"}
           width={"60"}
           alt="imagesource"
@@ -55,7 +55,7 @@ const Weathercard = (datas) => {
           <Box display={"flex"} alignItems={"center"}>
             <GiThermometerScale size={"30"} />
             <Text fontSize={"sm"} fontWeight={"semibold"} fontFamily={"Inter"}>
-              {datas.degreesC}
+              {datas?.degreesC}
               <sup>o</sup>C/{datas.degreesF}
               <sup>o</sup>F
             </Text>
