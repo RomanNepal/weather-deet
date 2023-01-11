@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
-const Image = dynamic(() => import("next/image"));
+
+import Image from "next/image";
 import React from "react";
 import { BiWind } from "react-icons/bi";
 import { GiDroplets, GiThermometerScale } from "react-icons/gi";

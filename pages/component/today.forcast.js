@@ -22,7 +22,7 @@ const TodayForcast = (data) => {
         fontFamily={"Inter"}
       >
         <Text textAlign={"center"} fontFamily={"Inter"} fontWeight={"bold"}>
-          Today&apos;s forcast
+          Today's forcast
         </Text>
         <br></br>
         <Box
