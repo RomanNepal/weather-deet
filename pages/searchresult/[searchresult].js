@@ -90,10 +90,7 @@ const SearchResult = (recieved) => {
             <Weathercard
               country={data.location.country}
               cityName={data.location.name}
-              // imageSource={`http://${data?.current?.condition?.icon}`}
-              imageSource={
-                "https://cdn.weatherapi.com/weather/64x64/night/116.png"
-              }
+              imageSource={`http://${data?.current?.condition?.icon}`}
               time={data.location.localtime.substring(11)}
               degreesC={data.current.temp_c}
               degreesF={data.current.temp_f}

@@ -36,10 +36,10 @@ const Weathercard = (datas) => {
       </Box>
       <Box>
         <Image
-          src={"https://cdn.weatherapi.com/weather/64x64/night/116.png"}
+          src={datas.imageSource}
           height={"60"}
           width={"60"}
-          alt="imagesourcessss"
+          alt="imagesource"
         ></Image>
       </Box>
       <Box>
