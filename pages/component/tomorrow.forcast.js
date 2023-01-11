@@ -12,7 +12,7 @@ import {
 import { FaWind } from "react-icons/fa";
 const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 const TomorrowForcast = (data) => {
-  const datas = data.data.forecast.forecastday[1];
+  const datas = data?.data?.forecast?.forecastday[1];
 
   return (
     <>
@@ -31,7 +31,7 @@ const TomorrowForcast = (data) => {
         fontFamily={"Inter"}
       >
         <Text textAlign={"center"} fontFamily={"Inter"} fontWeight={"bold"}>
-          Tomorrow&apos;s forcast: {datas.day.condition.text}
+          Tomorrow&apos;s forcast: {datas?.day?.condition?.text}
         </Text>
         <br></br>
         <Box
@@ -47,7 +47,7 @@ const TomorrowForcast = (data) => {
                   <BsThermometerHalf />
                   <Text>
                     Max: {datas.day.maxtemp_c}
-                    <sup>o</sup>C/ {datas.day.maxtemp_f}
+                    <sup>o</sup>C/ {datas?.day?.maxtemp_f}
                     <sup>o</sup>F
                   </Text>
                 </Box>
@@ -55,41 +55,41 @@ const TomorrowForcast = (data) => {
                   <BsThermometerHalf />
                   <Text>
                     Min: {datas.day.mintemp_c}
-                    <sup>o</sup>C/ {datas.day.mintemp_f}
+                    <sup>o</sup>C/ {datas?.day?.mintemp_f}
                     <sup>o</sup>F
                   </Text>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <FaWind />
-                  <Text>Max: {datas.day.maxwind_kph} km/hr</Text>
+                  <Text>Max: {datas?.day?.maxwind_kph} km/hr</Text>
                 </Box>
               </Box>
               <Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsCloudRain />
-                  <Text>{datas.day.daily_chance_of_rain}% </Text>
+                  <Text>{datas?.day?.daily_chance_of_rain}% </Text>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsSnow2 />
-                  <Text>{datas.day.daily_chance_of_snow}% </Text>
+                  <Text>{datas?.day?.daily_chance_of_snow}% </Text>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsDropletHalf />
-                  <Text>Humidity: {datas.day.avghumidity}</Text>
+                  <Text>Humidity: {datas?.day?.avghumidity}</Text>
                 </Box>
               </Box>
               <Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsSunrise />
-                  <Text>Sunrise: {datas.astro.sunrise}</Text>
+                  <Text>Sunrise: {datas?.astro?.sunrise}</Text>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsSunset />
-                  <Text>Sunset: {datas.astro.sunset}</Text>
+                  <Text>Sunset: {datas?.astro?.sunset}</Text>
                 </Box>
                 <Box display={"flex"} alignItems={"center"}>
                   <BsFillMoonStarsFill />
-                  <Text>Moonrise: {datas.astro.moonrise}</Text>
+                  <Text>Moonrise: {datas?.astro?.moonrise}</Text>
                 </Box>
               </Box>
             </>
