@@ -54,6 +54,7 @@ export default function Home(data) {
         bgSize={"cover"}
         bgColor={"gray.100"}
       >
+        Hello
         <Box className={quicksand.className} fontWeight={"bold"}>
           <form onSubmit={handleSubmit}>
             <InputGroup>
@@ -108,7 +109,7 @@ export default function Home(data) {
             <Weathercard
               country={data.data1.location.country}
               cityName={data.data1.location.name}
-              imageSource={`http://${data.data1.current.condition.icon}`}
+              imageSource={`http://${data?.data1?.current?.condition?.icon}`}
               time={data.data1.location.localtime.substring(11)}
               degreesC={data.data1.current.temp_c}
               degreesF={data.data1.current.temp_f}
@@ -118,7 +119,7 @@ export default function Home(data) {
             <Weathercard
               country={data.data2.location.country}
               cityName={data.data2.location.name}
-              imageSource={`http://${data.data2.current.condition.icon}`}
+              imageSource={`http://${data?.data2?.current?.condition?.icon}`}
               time={data.data2.location.localtime.substring(11)}
               degreesC={data.data2.current.temp_c}
               degreesF={data.data2.current.temp_f}
@@ -128,7 +129,7 @@ export default function Home(data) {
             <Weathercard
               country={data.data3.location.country}
               cityName={data.data3.location.name}
-              imageSource={`http://${data.data3.current.condition.icon}`}
+              imageSource={`http://${data?.data3?.current?.condition?.icon}`}
               time={data.data3.location.localtime.substring(11)}
               degreesC={data.data3.current.temp_c}
               degreesF={data.data3.current.temp_f}
@@ -138,7 +139,7 @@ export default function Home(data) {
             <Weathercard
               country={data.data4.location.country}
               cityName={data.data4.location.name}
-              imageSource={`http://${data.data4.current.condition.icon}`}
+              imageSource={`http://${data?.data4?.current?.condition?.icon}`}
               time={data.data4.location.localtime.substring(11)}
               degreesC={data.data4.current.temp_c}
               degreesF={data.data4.current.temp_f}
@@ -155,20 +156,20 @@ export default function Home(data) {
 export async function getStaticProps(context) {
   let response1 = await axios.get(
     // `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=Paris`
-    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=Kathmandu`
+    `https://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=Kathmandu`
   );
 
   let response2 = await axios.get(
     // `${urls.base_url}/${urls.current_weather}?key=a3996048254b4c36af2154129230801&q=Paris`
-    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=London`
+    `https://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=London`
   );
 
   let response3 = await axios.get(
-    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New York`
+    `https://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New York`
   );
 
   let response4 = await axios.get(
-    `http://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New Delhi`
+    `https://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New Delhi`
   );
   console.log("api called");
   let data1 = response1.data;
