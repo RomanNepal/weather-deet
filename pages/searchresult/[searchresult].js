@@ -4,16 +4,21 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  Skeleton,
   Text,
 } from "@chakra-ui/react";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { Suspense, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-import TodayForcast from "../component/today.forcast";
-import TomorrowForcast from "../component/tomorrow.forcast";
+import Loading from "../component/loading";
+const TodayForcast = dynamic(() => import("../component/today.forcast"), {
+  ssr: false,
+});
+const TomorrowForcast = dynamic(() => import("../component/tomorrow.forcast"), {
+  ssr: false,
+});
 import Weathercard from "../component/weather.card";
 
 const SearchResult = (recieved) => {
@@ -22,7 +27,6 @@ const SearchResult = (recieved) => {
   const [formData, setFormData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  console.log(router.query);
   useEffect(() => {
     setData(recieved.data);
     setLoading(false);
@@ -87,20 +91,25 @@ const SearchResult = (recieved) => {
 
         {data ? (
           <>
-            <Weathercard
-              country={data.location.country}
-              cityName={data.location.name}
-              imageSource={`http://${data?.current?.condition?.icon}`}
-              time={data.location.localtime.substring(11)}
-              degreesC={data.current.temp_c}
-              degreesF={data.current.temp_f}
-              wind={data.current.wind_mph}
-              humidity={data.current.humidity}
-            />
+            <Suspense fallback={<Loading />}>
+              <Weathercard
+                country={data.location.country}
+                cityName={data.location.name}
+                imageSource={`http://${data?.current?.condition?.icon}`}
+                time={data.location.localtime.substring(11)}
+                degreesC={data.current.temp_c}
+                degreesF={data.current.temp_f}
+                wind={data.current.wind_mph}
+                humidity={data.current.humidity}
+              />
+            </Suspense>
+            <Suspense fallback={<Loading />}>
+              <TodayForcast data={data} />
+            </Suspense>
 
-            <TodayForcast data={data} />
-
-            <TomorrowForcast data={data} />
+            <Suspense fallback={<Loading />}>
+              <TomorrowForcast data={data} />
+            </Suspense>
           </>
         ) : (
           ""
@@ -119,7 +128,6 @@ export default SearchResult;
 // }
 
 export async function getServerSideProps(context) {
-  console.log(" context is ", context.query.searchresult);
   let data = {};
   try {
     let result = await axios.get(

@@ -170,7 +170,7 @@ export async function getStaticProps(context) {
   let response4 = await axios.get(
     `https://api.weatherapi.com/v1/current.json?key=a3996048254b4c36af2154129230801&q=New Delhi`
   );
-  console.log("api called");
+
   let data1 = response1.data;
   let data2 = response2.data;
   let data3 = response3.data;
