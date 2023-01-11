@@ -54,7 +54,6 @@ export default function Home(data) {
         bgSize={"cover"}
         bgColor={"gray.100"}
       >
-        Hello3
         <Box className={quicksand.className} fontWeight={"bold"}>
           <form onSubmit={handleSubmit}>
             <InputGroup>

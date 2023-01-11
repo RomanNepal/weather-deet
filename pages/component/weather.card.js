@@ -7,6 +7,7 @@ import { GiDroplets, GiThermometerScale } from "react-icons/gi";
 import { IoMdTime } from "react-icons/io";
 
 const Weathercard = (datas) => {
+  console.log("image source is", datas.imageSource);
   return (
     <Box
       width={"600px"}
@@ -40,6 +41,7 @@ const Weathercard = (datas) => {
           height={"60"}
           width={"60"}
           alt="imagesource"
+          unoptimized={"true"}
         ></Image>
       </Box>
       <Box>
