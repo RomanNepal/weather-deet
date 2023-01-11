@@ -36,8 +36,6 @@ const Weathercard = (datas) => {
       </Box>
       <Box>
         <Image
-          placeholder={"blur"}
-          blurDataURL={"/vercel.svg"}
           src={datas?.imageSource}
           height={"60"}
           width={"60"}
