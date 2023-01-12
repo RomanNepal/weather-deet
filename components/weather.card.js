@@ -9,8 +9,8 @@ import { IoMdTime } from "react-icons/io";
 const Weathercard = (datas) => {
   return (
     <Box
-      width={"600px"}
-      p={"10"}
+      width={{ base: "100%", md: "600px" }}
+      p={{ base: "5", md: "10" }}
       borderRadius={"2xl"}
       bgImage={"/gradient1.png"}
       bgSize={"cover"}
@@ -19,7 +19,7 @@ const Weathercard = (datas) => {
       display={"flex"}
       justifyContent={"space-around"}
       textColor={"gray.700"}
-      gap={"20"}
+      // gap={"5"}
       alignItems={"center"}
     >
       <Box>
@@ -30,19 +30,20 @@ const Weathercard = (datas) => {
         >
           {datas.country}
         </Text>
-        <Text fontSize={"2xl"} fontWeight={"semibold"} fontFamily={"Poppins"}>
+        <Text fontSize={"150%"} fontWeight={"semibold"} fontFamily={"Poppins"}>
           {datas.cityName}
         </Text>
+        <Box>
+          <Image
+            src={datas.imageSource}
+            height={"60"}
+            width={"60"}
+            alt="imagesource"
+            unoptimized={"true"}
+          ></Image>
+        </Box>
       </Box>
-      <Box>
-        <Image
-          src={datas.imageSource}
-          height={"60"}
-          width={"60"}
-          alt="imagesource"
-          unoptimized={"true"}
-        ></Image>
-      </Box>
+
       <Box>
         <Box>
           <Box display={"flex"} alignItems={"center"}>

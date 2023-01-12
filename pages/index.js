@@ -1,7 +1,7 @@
 import Head from "next/head";
+
 import "../next.config";
 import { Inter, Quicksand } from "@next/font/google";
-// import styles from "../styles/Home.module.css";
 import {
   Box,
   Button,
@@ -12,11 +12,10 @@ import {
 } from "@chakra-ui/react";
 import { BiSearchAlt } from "react-icons/bi";
 import axios from "axios";
-import Weathercard from "./component/weather.card";
+import Weathercard from "../components/weather.card";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-const inter = Inter({ subsets: ["latin"] });
 const quicksand = Quicksand({ subsets: ["latin"], style: ["normal"] });
 
 export default function Home(data) {
@@ -33,7 +32,7 @@ export default function Home(data) {
     }
   };
   return (
-    <>
+    <div>
       <Head>
         <title>Weather Deets</title>
         <meta
@@ -43,8 +42,8 @@ export default function Home(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/roundlogo.png" />
       </Head>
+
       <Box
-        height={"835px"}
         display={"flex"}
         flexDir={"column"}
         alignItems={"center"}
@@ -53,22 +52,24 @@ export default function Home(data) {
         bgPos={"center"}
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
-        bgColor={"gray.100"}
-        pt={"-8"}
       >
         <Image src={"/fulllogo.png"} height={"100"} width={"100"}></Image>
-        <Box className={quicksand.className} fontWeight={"bold"}>
+        <Box
+          fontWeight={"bold"}
+          fontFamily={"Inter"}
+          width={{ base: "90%", md: "50%" }}
+        >
           <form onSubmit={handleSubmit}>
             <InputGroup>
               <Input
                 type={"search"}
                 isRequired
-                width={"lg"}
+                width={"100%"}
                 // border={"2px"}
                 borderRadius={"full"}
                 fontWeight={"normal"}
                 onChange={handleChange}
-                placeholder={"Search City For Current Weather and Predictions"}
+                placeholder={"Search City For Current Weather"}
                 bgColor={"white"}
               ></Input>
               <InputRightAddon
@@ -81,20 +82,12 @@ export default function Home(data) {
               </InputRightAddon>
             </InputGroup>
           </form>
-
-          <Text
-            textAlign={"center"}
-            fontSize={"xl"}
-            textColor={"black"}
-            fontWeight={"light"}
-            fontFamily={"Poppins"}
-          ></Text>
         </Box>
         <br></br>
         <Box>
           <Text
             fontFamily={"Poppins"}
-            fontSize={"5xl"}
+            fontSize={{ base: "3xl", md: "5xl" }}
             fontWeight={"bold"}
             textAlign={"center"}
           >
@@ -106,6 +99,7 @@ export default function Home(data) {
             gap={"10"}
             flexWrap={"wrap"}
             justifyContent={"center"}
+            padding={{ base: "5", md: "0" }}
           >
             {/* weather box1 */}
             <Weathercard
@@ -151,7 +145,7 @@ export default function Home(data) {
           </Box>
         </Box>
       </Box>
-    </>
+    </div>
   );
 }
 

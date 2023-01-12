@@ -14,14 +14,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Suspense, useEffect, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-import Loading from "../component/loading";
-const TodayForcast = dynamic(() => import("../component/today.forcast"), {
+const TodayForcast = dynamic(() => import("../../components/today.forcast"), {
   ssr: false,
 });
-const TomorrowForcast = dynamic(() => import("../component/tomorrow.forcast"), {
-  ssr: false,
-});
-const Weathercard = dynamic(() => import("../component/weather.card"));
+const TomorrowForcast = dynamic(
+  () => import("../../components/tomorrow.forcast"),
+  {
+    ssr: false,
+  }
+);
+const Weathercard = dynamic(() => import("../../components/weather.card"));
 
 const SearchResult = (recieved) => {
   const router = useRouter();
@@ -100,37 +102,33 @@ const SearchResult = (recieved) => {
           Current Weather of {data?.location?.name}, {data?.location?.country}
         </Text>
 
-        {data ? (
-          <>
-            <Suspense
-              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
-            >
-              <Weathercard
-                country={data.location.country}
-                cityName={data.location.name}
-                imageSource={`http://${data?.current?.condition?.icon}`}
-                time={data.location.localtime.substring(11)}
-                degreesC={data.current.temp_c}
-                degreesF={data.current.temp_f}
-                wind={data.current.wind_mph}
-                humidity={data.current.humidity}
-              />
-            </Suspense>
-            <Suspense
-              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
-            >
-              <TodayForcast data={data} />
-            </Suspense>
+        <>
+          <Suspense
+            fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+          >
+            <Weathercard
+              country={data?.location.country}
+              cityName={data?.location.name}
+              imageSource={`http://${data?.current?.condition?.icon}`}
+              time={data?.location.localtime.substring(11)}
+              degreesC={data?.current.temp_c}
+              degreesF={data?.current.temp_f}
+              wind={data?.current.wind_mph}
+              humidity={data?.current.humidity}
+            />
+          </Suspense>
+          <Suspense
+            fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+          >
+            <TodayForcast data={data} />
+          </Suspense>
 
-            <Suspense
-              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
-            >
-              <TomorrowForcast data={data} />
-            </Suspense>
-          </>
-        ) : (
-          ""
-        )}
+          <Suspense
+            fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+          >
+            <TomorrowForcast data={data} />
+          </Suspense>
+        </>
       </Box>
     </>
   );
