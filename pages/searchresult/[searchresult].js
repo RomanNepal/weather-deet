@@ -21,7 +21,7 @@ const TodayForcast = dynamic(() => import("../component/today.forcast"), {
 const TomorrowForcast = dynamic(() => import("../component/tomorrow.forcast"), {
   ssr: false,
 });
-import Weathercard from "../component/weather.card";
+const Weathercard = dynamic(() => import("../component/weather.card"));
 
 const SearchResult = (recieved) => {
   const router = useRouter();
@@ -102,7 +102,9 @@ const SearchResult = (recieved) => {
 
         {data ? (
           <>
-            <Suspense fallback={<Loading />}>
+            <Suspense
+              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+            >
               <Weathercard
                 country={data.location.country}
                 cityName={data.location.name}
@@ -114,11 +116,15 @@ const SearchResult = (recieved) => {
                 humidity={data.current.humidity}
               />
             </Suspense>
-            <Suspense fallback={<Loading />}>
+            <Suspense
+              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+            >
               <TodayForcast data={data} />
             </Suspense>
 
-            <Suspense fallback={<Loading />}>
+            <Suspense
+              fallback={"LOADING THERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"}
+            >
               <TomorrowForcast data={data} />
             </Suspense>
           </>
