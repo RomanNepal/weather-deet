@@ -36,6 +36,7 @@ const Weathercard = (datas) => {
           fontSize={{ base: "md", md: "150%" }}
           fontWeight={"semibold"}
           fontFamily={"Poppins"}
+          textAlign={"left"}
         >
           {datas.cityName}
         </Text>
