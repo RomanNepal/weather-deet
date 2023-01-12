@@ -107,8 +107,6 @@ const SearchResult = (recieved) => {
           </form>
         </Box>
 
-        <br></br>
-
         <Text fontFamily={"Inter"} fontWeight={"bold"}>
           Current Weather of {data?.location?.name}, {data?.location?.country}
         </Text>

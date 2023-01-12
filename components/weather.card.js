@@ -21,6 +21,7 @@ const Weathercard = (datas) => {
       textColor={"gray.700"}
       // gap={"5"}
       alignItems={"center"}
+      boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
     >
       <Box>
         <Text

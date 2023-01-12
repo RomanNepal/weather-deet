@@ -53,12 +53,30 @@ export default function Home(data) {
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
       >
-        <Image src={"/fulllogo.png"} height={"100"} width={"100"}></Image>
-        <Box
-          fontWeight={"bold"}
-          fontFamily={"Inter"}
-          width={{ base: "90%", md: "50%" }}
-        >
+        <Box fontFamily={"Inter"} width={{ base: "90%", md: "50%" }}>
+          {/* <Image src={"/fulllogo.png"} height={"100"} width={"100"}></Image> */}
+          <br></br>
+          <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+            {/* <Image src={"/fulllogo.png"} height={"100"} width={"100"}></Image> */}
+            <Text
+              fontFamily={"Poppins"}
+              fontSize={{ base: "3xl", md: "7xl" }}
+              fontWeight={"bold"}
+              textAlign={"center"}
+            >
+              World Weather
+            </Text>
+          </Box>
+          <Text
+            fontFamily={"Inter"}
+            fontSize={{ base: "lg", md: "lg" }}
+            textAlign={"center"}
+          >
+            Get current weather info, predictions and lot more info
+          </Text>
+
+          <br></br>
+          <br></br>
           <form onSubmit={handleSubmit}>
             <InputGroup>
               <Input
@@ -84,15 +102,16 @@ export default function Home(data) {
           </form>
         </Box>
         <br></br>
+        <br></br>
         <Box>
-          <Text
+          {/* <Text
             fontFamily={"Poppins"}
             fontSize={{ base: "3xl", md: "5xl" }}
             fontWeight={"bold"}
             textAlign={"center"}
           >
             World Weather
-          </Text>
+          </Text> */}
           <br></br>
           <Box
             display={"flex"}

@@ -29,6 +29,7 @@ const TomorrowForcast = (data) => {
         bgRepeat={"no-repeat"}
         textColor={"gray.700"}
         fontFamily={"Inter"}
+        boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
       >
         <Text textAlign={"center"} fontFamily={"Inter"} fontWeight={"bold"}>
           Tomorrow&apos;s forcast: {datas?.day?.condition?.text}
