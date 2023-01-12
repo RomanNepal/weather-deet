@@ -27,21 +27,25 @@ const Weathercard = (datas) => {
           fontSize={"sm"}
           // fontWeight={"semibold"}
           fontFamily={"Inter"}
+          textAlign={"left"}
         >
           {datas.country}
         </Text>
-        <Text fontSize={"150%"} fontWeight={"semibold"} fontFamily={"Poppins"}>
+        <Text
+          fontSize={{ base: "md", md: "150%" }}
+          fontWeight={"semibold"}
+          fontFamily={"Poppins"}
+        >
           {datas.cityName}
         </Text>
-        <Box>
-          <Image
-            src={datas.imageSource}
-            height={"60"}
-            width={"60"}
-            alt="imagesource"
-            unoptimized={"true"}
-          ></Image>
-        </Box>
+
+        <Image
+          src={datas.imageSource}
+          height={"60"}
+          width={"60"}
+          alt="imagesource"
+          unoptimized={"true"}
+        ></Image>
       </Box>
 
       <Box>

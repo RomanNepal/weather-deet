@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Center,
   Input,
   InputGroup,
   InputRightAddon,
@@ -26,15 +27,16 @@ const TomorrowForcast = dynamic(
 const Weathercard = dynamic(() => import("../../components/weather.card"));
 
 const SearchResult = (recieved) => {
+  let data = recieved.data;
   const router = useRouter();
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const [formData, setFormData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setData(recieved.data);
-    setLoading(false);
-  }, [recieved.data]);
+  // useEffect(() => {
+  //   setData(recieved.data);
+  //   setLoading(false);
+  // }, [recieved.data]);
   const handleChange = (e) => {
     setFormData(e.target.value);
   };
@@ -55,7 +57,10 @@ const SearchResult = (recieved) => {
         <link rel="icon" href="/roundlogo.png" />
       </Head>
       <Box
-        padding={"10"}
+        pt={"10"}
+        pl={"4"}
+        pr={"4"}
+        pb={"10"}
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
@@ -65,37 +70,43 @@ const SearchResult = (recieved) => {
       >
         <Link href={"/"}>
           {" "}
-          <Image
-            unoptimized={"true"}
-            src={"/fulllogo.png"}
-            height={"100"}
-            width={"100"}
-          ></Image>
+          <Suspense fallback={"IMAGE LOADING>>>>>>>>>>>>>>>>>>>>>>>>."}>
+            <Image
+              unoptimized={"true"}
+              src={"/fulllogo.png"}
+              height={"100"}
+              width={"100"}
+            ></Image>
+          </Suspense>
         </Link>
-        <form onSubmit={handleSubmit}>
-          <InputGroup>
-            <Input
-              type={"search"}
-              isRequired
-              width={"lg"}
-              // border={"2px"}
-              borderRadius={"full"}
-              fontWeight={"normal"}
-              onChange={handleChange}
-              placeholder={"Search City For Current Weather and Predictions"}
-              bgColor={"white"}
-            ></Input>
 
-            <InputRightAddon
-              as={Button}
-              onClick={handleSubmit}
-              bgColor={"blue.700"}
-              borderRadius={"full"}
-            >
-              <BiSearchAlt color="white" />
-            </InputRightAddon>
-          </InputGroup>
-        </form>
+        <Box width={{ base: "90%", md: "50%" }}>
+          <form onSubmit={handleSubmit}>
+            <InputGroup>
+              <Input
+                type={"search"}
+                isRequired
+                width={"100%"}
+                // border={"2px"}
+                borderRadius={"full"}
+                fontWeight={"normal"}
+                onChange={handleChange}
+                placeholder={"Search City For Current Weather"}
+                bgColor={"white"}
+              ></Input>
+
+              <InputRightAddon
+                as={Button}
+                onClick={handleSubmit}
+                bgColor={"blue.700"}
+                borderRadius={"full"}
+              >
+                <BiSearchAlt color="white" />
+              </InputRightAddon>
+            </InputGroup>
+          </form>
+        </Box>
+
         <br></br>
 
         <Text fontFamily={"Inter"} fontWeight={"bold"}>

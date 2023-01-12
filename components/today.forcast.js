@@ -8,11 +8,12 @@ const TodayForcast = (data) => {
   return (
     <>
       <Box
-        width={"600px"}
-        pl={"10"}
-        pr={"10"}
-        pt={"5"}
-        pb={"10"}
+        width={{ base: "100%", md: "600px" }}
+        // p={{ base: "5", md: "10" }}
+        pl={{ base: "3", md: "10" }}
+        pr={{ base: "3", md: "10" }}
+        pt={{ base: "5", md: "10" }}
+        pb={{ base: "5", md: "10" }}
         borderRadius={"2xl"}
         bgImage={"/gradient1.png"}
         bgSize={"cover"}
@@ -34,14 +35,22 @@ const TodayForcast = (data) => {
             if (index % 3 == 0) {
               return (
                 <Box key={index} fontWeight={"medium"}>
-                  <Text textAlign={"center"}>{item.time.substring(11)}</Text>
+                  <Text
+                    fontSize={{ base: "small", md: "md" }}
+                    textAlign={"center"}
+                  >
+                    {item.time.substring(11)}
+                  </Text>
                   <Image
                     src={`http:${item.condition.icon}`}
                     width={"40"}
                     height={"40"}
                     alt="condition"
                   ></Image>
-                  <Text textAlign={"center"}>
+                  <Text
+                    textAlign={"center"}
+                    fontSize={{ base: "small", md: "md" }}
+                  >
                     {item.temp_c}
                     <sup>o</sup>C
                   </Text>

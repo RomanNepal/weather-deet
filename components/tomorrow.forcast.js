@@ -17,8 +17,8 @@ const TomorrowForcast = (data) => {
   return (
     <>
       <Box
-        width={"600px"}
-        pl={"10"}
+        width={{ base: "100%", md: "600px" }}
+        p={{ base: "5", md: "10" }}
         pr={"10"}
         pt={"5"}
         pb={"10"}
@@ -37,8 +37,9 @@ const TomorrowForcast = (data) => {
         <Box
           fontWeight={"medium"}
           display={"flex"}
+          flexDir={{ base: "column", md: "row" }}
           justifyContent={"space-around"}
-          alignItems={"center"}
+          alignItems={{ base: "left", md: "center" }}
         >
           {datas ? (
             <>
