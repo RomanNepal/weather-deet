@@ -5,9 +5,11 @@ import { Inter, Quicksand } from "@next/font/google";
 import {
   Box,
   Button,
+  Center,
   Input,
   InputGroup,
   InputRightAddon,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import { BiSearchAlt } from "react-icons/bi";
@@ -20,6 +22,7 @@ const quicksand = Quicksand({ subsets: ["latin"], style: ["normal"] });
 
 export default function Home(data) {
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -27,9 +30,8 @@ export default function Home(data) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.length) {
-      router.push(`/searchresult/${input}`);
-    }
+    setLoading(true);
+    router.push(`/searchresult/${input}`);
   };
   return (
     <div>
@@ -96,10 +98,22 @@ export default function Home(data) {
                 bgColor={"blue.700"}
                 borderRadius={"full"}
               >
-                <BiSearchAlt color="white" />
+                {loading ? (
+                  <Spinner color="white"></Spinner>
+                ) : (
+                  <BiSearchAlt color="white" />
+                )}
               </InputRightAddon>
             </InputGroup>
           </form>
+          {/* {loading ? (
+            <Center>
+              {" "}
+              <Spinner></Spinner>
+            </Center>
+          ) : (
+            ""
+          )} */}
         </Box>
         <br></br>
         <br></br>
