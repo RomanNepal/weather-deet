@@ -1,10 +1,10 @@
 import {
   Box,
   Button,
-  Center,
   Input,
   InputGroup,
   InputRightAddon,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import axios from "axios";
@@ -31,7 +31,7 @@ const SearchResult = (recieved) => {
   const router = useRouter();
   // const [data, setData] = useState();
   const [formData, setFormData] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // useEffect(() => {
   //   setData(recieved.data);
@@ -42,7 +42,10 @@ const SearchResult = (recieved) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     router.push(`/searchresult/${formData}`);
+    setLoading(false);
+    e.target.reset();
   };
 
   return (
@@ -101,7 +104,11 @@ const SearchResult = (recieved) => {
                 bgColor={"blue.700"}
                 borderRadius={"full"}
               >
-                <BiSearchAlt color="white" />
+                {loading ? (
+                  <Spinner color="white"></Spinner>
+                ) : (
+                  <BiSearchAlt color="white" />
+                )}
               </InputRightAddon>
             </InputGroup>
           </form>
