@@ -19,14 +19,13 @@ const Footer = () => {
         textColor={"white"}
         fontFamily={"Inter"}
       >
-        
         <Link href={"https://www.facebook.com/roman.nepal.1"}>
           <BsFacebook />
         </Link>
-        <Link href={"https://www.facebook.com/roman.nepal.1"}>
+        <Link href={"https://www.instagram.com/roman.nepal.1"}>
           <BsInstagram />
         </Link>
-        <Link href={"https://www.facebook.com/roman.nepal.1"}>
+        <Link href={"https://github.com/RomanNepal"}>
           <BsGithub />
         </Link>
       </Box>
