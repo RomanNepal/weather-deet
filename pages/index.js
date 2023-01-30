@@ -133,6 +133,7 @@ export default function Home(data) {
             flexWrap={"wrap"}
             justifyContent={"center"}
             padding={{ base: "5", md: "0" }}
+            mb={"10"}
           >
             {/* weather box1 */}
             <Weathercard
