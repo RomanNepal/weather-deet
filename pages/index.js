@@ -36,7 +36,7 @@ export default function Home(data) {
   return (
     <div>
       <Head>
-        <title>Weather Deets</title>
+        <title>Weather Deet</title>
         <meta
           name="description"
           content="World Weather - Current and Forcast"
